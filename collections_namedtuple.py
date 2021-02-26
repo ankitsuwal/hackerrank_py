@@ -1,11 +1,12 @@
 from collections import namedtuple
 
-Std = namedtuple('Student', 'ID MARKS NAME CLASS')
+n = int(input())
+fields = input().split()
 
-xyz = Std(ID=1, MARKS=97, NAME='Raymond', CLASS=7)
-xyz = Std(ID=2, MARKS=50, NAME='Steven', CLASS=6)
-xyz = Std(ID=3, MARKS=91, NAME='Adrian', CLASS=5)
-xyz = Std(ID=4, MARKS=72, NAME='Stewart', CLASS=4)
-xyz = Std(ID=5, MARKS=80, NAME='Peter', CLASS=3)
-
-print(xyz)
+total_marks = 0
+for _ in range(n):
+    students = namedtuple('student', fields)
+    MARKS, CLASS, NAME, ID = input().split()
+    student = students(MARKS, CLASS, NAME, ID)
+    total_marks += int(student.MARKS)
+print('{:.2f}'.format(total_marks / n))
